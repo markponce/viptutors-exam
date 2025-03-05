@@ -15,20 +15,15 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-
         // create defaut admin user
         User::factory()->create([
-            'name' => 'admin',
+            'name' => 'Super Admin',
             'email' => 'admin@gmail.com',
             'is_admin' => 1,
             'password' => Hash::make('password')
         ]);
 
         // generate other 4 users with random product counts
-        User::factory(4)->create()->each(function($user){
-            $user->products()->createMany(
-                Product::factory(rand(1, 5))->make()->toArray()
-            );
-        });
+        User::factory(4)->create();
     }
 }
