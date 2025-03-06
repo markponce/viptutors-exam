@@ -38,14 +38,21 @@ class UpdateProductRequest extends FormRequest
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules(): array
-    {
+    {   
+        $userId = Auth::user()->id;
+        $product = $this->route('product');
+        // If admin is editing a product which did no belong to him
+        if (Auth::user()->isAdmin() && $userId !== $product->user->id) {
+            $userId = $product->user->id;
+        }
+
         return [
             'title' => [
                 'required',
                 'string',
                 'min:2',
                 'max:50',
-                Rule::unique('products')->ignore(Auth::user()->id, 'user_id'),
+                Rule::unique('products')->ignore($userId, 'user_id'),
             ],
             'body' => 'required|string|min:2|max:250',
         ];
