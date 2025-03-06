@@ -56,23 +56,23 @@ can add, edit or delete a product (if product already tag to a user product cann
 deleted, note: can do to hide the button or click delete will pop up an error message)
 - [x] 6. Apply the middleware to a route group for admin routes.
 - [x] 7. admin can view all users with their products (this is the no. 3)
-8. non-admin users can (create, update, delete, view) products
-9. non-admin users can only view their product
-10. Use Observables and Eloquent
-11. Create custom command to upebdate quantity of the products
+- [x] 8. non-admin users can (create, update, delete, view) products
+- [x] 9. non-admin users can only view their product
+- [x] 10. Use Observables and Eloquent
+- [x] 11. Create custom command to update quantity of the products
 12. Add image for each product and use ftp server(should be applied in docker) for storage
-13. Create scheduler to delete products with less than 10 quantity every monday midnight
-14. Use proper status code
+- [x] 13. Create scheduler to delete products with less than 10 quantity every monday midnight - routes/console.php
+- [x] 14. Use proper status code
 15. Share api used(postman, swagger, etc…) via readme
-16. Dispatch cron job via event channel to send email every time product is created
-17. The email should have link to product view
+- [x] 16. Dispatch cron job via event channel to send email every time product is created
+- [x] 17. The email should have link to product view
 18. Integrate https://fakestoreapi.com/ and https://fakeapi.platzi.com/ make sure to have 1 interface
 to access between this 2 api. We should be able to switch from these 2 apis to add products.
 interface ProductInterface
 {
 public function addProduct(): Response;
 }
-19. During adding of product avoid having duplicate product names.
+- [x] 19. During adding of product avoid having duplicate product names.
 20. Create unit test for crud operation in products
 21. Create unit test for these 2 third party api just test adding products
 22. Use mysql for unit test not sqlite and should be different from the database used by the app.
