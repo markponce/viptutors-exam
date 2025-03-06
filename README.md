@@ -1,66 +1,82 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Laravel Senior Developer Exam
+Part 1: Eloquent Relationships
+- [x] Question 1: One-to-Many Relationship
+You are building an application. Implement a one-to-many relationship between User and Product
+models where a user can have multiple products. Using
+● Models: User, Product
+Tasks:
+- [x] 1. Create the Product model and migration.
+- [x] 2. Define the one-to-many relationship in the User and Product models.
+- [x] 3. Write a method in the User model to fetch all products of a user.
+Expected Output:
+- [x] ● User model should have a method products() returning all products by the user.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+- [x] Question 2: What are the coding principles/practices you can apply in your
+Code?
 
-## About Laravel
+- Inheritance
+I applied inheritance by extending the Illuminate\Database\Eloquent\Model and other classes
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Encapsulation 
+The User model implements protected properties and also it parent  Illuminate\Foundation\Auth\User Illuminate\Database\Eloquent\Model also has proctected method that only its child class can access.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Abstraction
+Model is an abractract class has has implemented several interfaces that can be implemted to the class. the child class can use the method in abstract class and the abstract class should implement the interfaces declared.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Polymorphish 
+If you had a child class that extends Shape class like Circle or Square. A Cirlce and Square is also a Shape class
+for example a function paramter type with Shape should be abble to accept Circle and Square class because they are all shape this is the same with Classes the implements interfaces.
+(Have not yet found cases yet)
 
-## Learning Laravel
+Note: Please put your answer in README.md of the root directory of the project
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Part 3: Routing and Middleware
+- [x] Question 4: Custom Middleware
+Create a custom middleware that checks if a user is an admin. If the user is not an admin, redirect
+them to their product list page.
+● Middleware Name: CheckAdmin
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- [x] Part 4: Advanced Eloquent Queries
+Question 5: Eloquent Scopes
+Create a global scope for the Product model to only retrieve products that are not deleted.
+- [x] ● Model: Product
+- [x] ● Fields: id, title, body, del_flag
+Tasks:
+- [x] 1. Add an del_flag field to the products table.
+- [x] 2. Create a global scope to filter products that are not deleted.
+- [x] 3. Test the scope to ensure it works correctly.
+Expected Output:
+- [x] ● Product::all() should only return not deleted products.
+Tasks:
+- [x] 2. Create the middleware.
+- [x] 3. Register the middleware.
+- [x] 4. Create an admin routes access only, page will consist of user list with their products
+- [x] 5. Create an admin routes access only, page will consist of product list. In this page admin
+can add, edit or delete a product (if product already tag to a user product cannot be
+deleted, note: can do to hide the button or click delete will pop up an error message)
+- [x] 6. Apply the middleware to a route group for admin routes.
+- [x] 7. admin can view all users with their products (this is the no. 3)
+8. non-admin users can (create, update, delete, view) products
+9. non-admin users can only view their product
+10. Use Observables and Eloquent
+11. Create custom command to upebdate quantity of the products
+12. Add image for each product and use ftp server(should be applied in docker) for storage
+13. Create scheduler to delete products with less than 10 quantity every monday midnight
+14. Use proper status code
+15. Share api used(postman, swagger, etc…) via readme
+16. Dispatch cron job via event channel to send email every time product is created
+17. The email should have link to product view
+18. Integrate https://fakestoreapi.com/ and https://fakeapi.platzi.com/ make sure to have 1 interface
+to access between this 2 api. We should be able to switch from these 2 apis to add products.
+interface ProductInterface
+{
+public function addProduct(): Response;
+}
+19. During adding of product avoid having duplicate product names.
+20. Create unit test for crud operation in products
+21. Create unit test for these 2 third party api just test adding products
+22. Use mysql for unit test not sqlite and should be different from the database used by the app.
+23. Use caching for get all products
+24. Create docker to run this app
+Submission
+1. Store it in your github then share it to us. Do not make it private.
