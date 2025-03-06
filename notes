@@ -10,4 +10,10 @@ sail artisan migrate / sail artisan migrate:refresh --seed
 # Shortcut to generate a model, migration, factory, seeder, policy, controller, and form requests...
 php artisan make:model Product --all
 
+// to run queued jobs
+php artisan queue:work
+or 
+sail php artisan queue:work
 
+// to run scheduled
+sail php artisan schedule:work
