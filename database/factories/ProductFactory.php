@@ -18,7 +18,7 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->word(),
+            'title' => $this->faker->unique()->word(),
             'body' => $this->faker->sentence(),
             'del_flag' => 0, 
             'user_id' => User::factory(),

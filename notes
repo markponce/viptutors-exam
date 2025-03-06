@@ -1,0 +1,13 @@
+// run command on docker
+./vendor/bin/sail
+// add alias
+alias sail='sh $([ -f sail ] && echo sail || echo ./vendor/bin/sail)'
+// run docker sail
+sail up -d
+// reset db 
+sail artisan migrate / sail artisan migrate:refresh --seed
+
+# Shortcut to generate a model, migration, factory, seeder, policy, controller, and form requests...
+php artisan make:model Product --all
+
+
