@@ -23,6 +23,14 @@ class UserSeeder extends Seeder
             'password' => Hash::make('password')
         ]);
 
+        // Add another admin to test notification
+        User::factory()->create([
+            'name' => 'Super Admin 2',
+            'email' => 'admin2@gmail.com',
+            'is_admin' => 1,
+            'password' => Hash::make('password')
+        ]);
+
         // generate other 4 users with random product counts
         User::factory(4)->create();
     }
