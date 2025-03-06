@@ -5,6 +5,7 @@ namespace App\Policies;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
+use Illuminate\Support\Facades\Auth;
 
 class ProductPolicy
 {
@@ -13,7 +14,7 @@ class ProductPolicy
      */
     public function viewAny(User $user): bool
     {
-        return $user !== null ? true : false;
+        return false;
     }
 
     /**
@@ -21,7 +22,6 @@ class ProductPolicy
      */
     public function view(User $user, Product $product): bool
     {
-        return true;
         if ($user->isAdmin()) {
             return true;
         }
@@ -34,7 +34,7 @@ class ProductPolicy
      */
     public function create(User $user): bool
     {
-        return $user !== null ? true : false;
+        return $user !== null;
     }
 
     /**
