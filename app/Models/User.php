@@ -55,4 +55,9 @@ class User extends Authenticatable
     public function getProducts(){
         return $this->products();
     }
+
+    public function isAdmin(): bool{
+        // dd($this->is_admin === 1, 123123);
+        return $this->is_admin === 1;
+    }
 }
