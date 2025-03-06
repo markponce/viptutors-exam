@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'verified',])->group(function () {
     Route::middleware([CheckAdmin::class,])->group(function () {
-        Route::get('/dashboard', [DashboardController::class, 'index'])
+        Route::get('/', [DashboardController::class, 'index'])
             ->name('dashboard');
     });
     Route::prefix('/products')->group(function () {
@@ -29,10 +29,6 @@ Route::middleware(['auth', 'verified',])->group(function () {
             ->name('product.update');
     });
 });
-
-Route::get('/dashboard', [ProductController::class, 'index'])
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
