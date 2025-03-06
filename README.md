@@ -66,12 +66,15 @@ deleted, note: can do to hide the button or click delete will pop up an error me
 15. Share api used(postman, swagger, etc…) via readme
 - [x] 16. Dispatch cron job via event channel to send email every time product is created
 - [x] 17. The email should have link to product view
-18. Integrate https://fakestoreapi.com/ and https://fakeapi.platzi.com/ make sure to have 1 interface
+- [x] 18. Integrate https://fakestoreapi.com/ and https://fakeapi.platzi.com/ make sure to have 1 interface
 to access between this 2 api. We should be able to switch from these 2 apis to add products.
 interface ProductInterface
 {
 public function addProduct(): Response;
 }
+
+See app/Listeners/SendProductCreatedNotifications.php
+
 - [x] 19. During adding of product avoid having duplicate product names.
 20. Create unit test for crud operation in products
 21. Create unit test for these 2 third party api just test adding products
