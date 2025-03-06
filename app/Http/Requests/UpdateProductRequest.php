@@ -41,7 +41,7 @@ class UpdateProductRequest extends FormRequest
     {   
         $userId = Auth::user()->id;
         $product = $this->route('product');
-        // If admin is editing a product which did no belong to him
+        // If admin is updating a product which did not belong to him/her
         if (Auth::user()->isAdmin() && $userId !== $product->user->id) {
             $userId = $product->user->id;
         }
