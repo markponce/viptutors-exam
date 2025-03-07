@@ -27,7 +27,12 @@ class PlatziAPI implements ProductInterface{
                 'https://api.lorem.space/image/fashion?w=640&h=480&r=4278'
             ]
         ]);
-        Log::debug('PlatziAPI Response: ', [$response->body(), $response->status()]);
+
+        Log::debug('PlatziAPI Response: ', [
+            'status' => $response->status(),
+            'body' => $response->body(),
+        ]);
+
         return Response($response->body(), $response->status(), $response->headers());
     }
 }

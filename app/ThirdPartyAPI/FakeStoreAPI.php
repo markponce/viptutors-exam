@@ -26,7 +26,11 @@ class FakeStoreAPI implements ProductInterface{
             'image' => "https://api.lorem.space/image/furniture?w=640&h=480&r=8528",
         ]);
 
-        Log::debug('FakeStoreAPI Response: ', [$response->body(), $response->status()]);
+        Log::debug('FakeStoreAPI Response: ', [
+            'status' => $response->status(),
+            'body' => $response->body(),
+        ]);
+
         return Response($response->body(), $response->status(), $response->headers());
     }
 }
