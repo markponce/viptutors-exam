@@ -26,7 +26,7 @@ Model is an abractract class has has implemented several interfaces that can be 
 - Polymorphish 
 If you had a child class that extends Shape class like Circle or Square. A Cirlce and Square is also a Shape class
 for example a function paramter type with Shape should be abble to accept Circle and Square class because they are all shape this is the same with Classes the implements interfaces.
-(Have not yet found cases yet)
+See task #18.
 
 Note: Please put your answer in README.md of the root directory of the project
 
@@ -61,7 +61,8 @@ deleted, note: can do to hide the button or click delete will pop up an error me
 - [x] 10. Use Observables and Eloquent
 - [x] 11. Create custom command to update quantity of the products
 12. Add image for each product and use ftp server(should be applied in docker) for storage
-- [x] 13. Create scheduler to delete products with less than 10 quantity every monday midnight - routes/console.php
+- [x] 13. Create scheduler to delete products with less than 10 quantity every monday midnight - 
+See: routes/console.php
 - [x] 14. Use proper status code
 15. Share api used(postman, swagger, etc…) via readme
 - [x] 16. Dispatch cron job via event channel to send email every time product is created
@@ -72,12 +73,14 @@ interface ProductInterface
 {
 public function addProduct(): Response;
 }
-
-See app/Listeners/SendProductCreatedNotifications.php
+See: 
+app/Providers/AppServiceProvider.php
+app/Listeners/SyncProductToThirdPartyAPI.php
 
 - [x] 19. During adding of product avoid having duplicate product names.
 20. Create unit test for crud operation in products
-21. Create unit test for these 2 third party api just test adding products
+Note: Seen Sample in tests directory
+- [x] 21. Create unit test for these 2 third party api just test adding products
 22. Use mysql for unit test not sqlite and should be different from the database used by the app.
 23. Use caching for get all products
 24. Create docker to run this app
