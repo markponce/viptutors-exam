@@ -25,11 +25,9 @@ class SendProductCreatedNotifications implements ShouldQueue
      */
     public function handle(ProductCreated $event): void
     {
-        // User::whereNot('id', $event->chirp->user_id)->cursor()
         $adminUsers = User::where('is_admin', true)->whereNot('id', $event->product->user->id)->cursor();
         foreach($adminUsers as $adminUser) {
             $adminUser->notify(new NewProduct($event->product));
         }
-        $event->product->syncToServer(new FakeStoreAPI($event->product));
     }
 }
